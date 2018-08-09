@@ -1,16 +1,4 @@
-"""TODO(jrossthomson): DO NOT SUBMIT without one-line documentation for task.
 
-TODO(jrossthomson): DO NOT SUBMIT without a detailed description of task.
-"""
-
-from __future__ import absolute_import
-from __future__ import division
-from __future__ import print_function
-
-from absl import app
-from absl import flags
-
-FLAGS = flags.FLAGS
 
 schema = [
     bigquery.SchemaField('full_name', 'STRING', mode='REQUIRED'),
