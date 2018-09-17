@@ -2,6 +2,7 @@ import bz2
 import re
 import requests
 import shutil
+import subprocess
 import urllib
 from google.cloud import storage
 from google.cloud import bigquery
@@ -14,6 +15,10 @@ def download_file(src_url, dest_file):
   print('Downloaded {} to {}.'.format(src_url, dest_file))
 
 def bunzip2(src_file, dest_file):
+  answer = subprocess.check_output(['/bin/bunzip2', src_file])
+  print('File {} bunziped to {}. With message "{}".'.format(src_file, dest_file, answer))
+
+def bunzip2_stream(src_file, dest_file):
   with open(src_file, 'rb') as source, open(dest_file, 'wb') as dest:
     dest.write(bz2.decompress(source.read()))
   print('File {} bunziped to {}.'.format(src_file, dest_file))
